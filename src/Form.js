@@ -7,20 +7,20 @@ class Form extends Component {
         super(props);
 
         this.state = {
-
+            search:''
         };
     }
 
     onSubmit(e) {
         e.preventDefault();
-
+        this.props.onSubmit(this.state.search)
     }
 
     render() {
         return (
             <form onSubmit={(e) => this.onSubmit(e)}>
-                <Input />
-                <Button />
+                <Input value={this.state.search} onChange={e => this.setState({ search: e.target.value })}/>
+                <Button onClick={e => this.onSubmit(e)}/>
             </form>
         );
     }
