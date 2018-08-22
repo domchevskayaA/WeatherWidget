@@ -6,8 +6,8 @@ import './App.css';
 class App extends Component {
 
     constructor(props) {
-        super(props)
-        this.onSubmit = this.onSubmit.bind(this)
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
         this.state = {
             city: ''
         }

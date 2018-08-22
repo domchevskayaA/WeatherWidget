@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getCityConditions} from './api/weatherData'
+import {getCityConditions} from './api/weatherData';
 
 class WeatherWidget extends Component {
     constructor(props) {
@@ -17,9 +17,13 @@ class WeatherWidget extends Component {
                 .then(({data: [{Temperature: { Metric: { Value } }}]}) => this.setState({
                     city: nextProps.city,
                     temperature: Value
-                })).catch(error => {
-                console.log(error)
-            })
+                }), () => {
+                    console.log('No such city');
+                    this.setState({
+                        city: ''
+                    })
+                })
+
         }
     }
 
