@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Input from './Input';
 import Button from './Button';
+import PropTypes from 'prop-types';
 
 class Form extends Component {
     constructor(props) {
@@ -24,5 +25,9 @@ class Form extends Component {
         );
     }
 }
+
+Form.propTypes = {
+    onSubmit: PropTypes.func
+};
 
 export default Form;

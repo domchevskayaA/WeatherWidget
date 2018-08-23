@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {getCityConditions} from './api/weatherData';
 
 class WeatherWidget extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             city: '',
             temperature: 0
@@ -44,5 +44,9 @@ class WeatherWidget extends Component {
         );
     }
 }
+
+WeatherWidget.propTypes = {
+    city: PropTypes.string.isRequired
+};
 
 export default WeatherWidget;

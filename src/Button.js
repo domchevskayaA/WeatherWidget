@@ -1,15 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Button extends Component {
-    render() {
-        return (
-            <button
-                type='submit'
-            >
-                Search
-            </button>
-        );
-    }
-}
+const Button = () => (
+    <button
+        type='submit'
+    >
+        Search
+    </button>
+);
 
 export default Button;
