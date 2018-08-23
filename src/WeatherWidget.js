@@ -31,14 +31,8 @@ class WeatherWidget extends Component {
         return (
             <div className="WeatherWidget">
                 {
-                    this.state.city.length > 0 &&
-                    <div>
-                        {this.state.city} {this.state.temperature}<sup>°C</sup>
-                    </div>
-                }
-                {
-                    this.state.city.length === 0 &&
-                    'No data'
+                    this.state.city.length ? <div>{this.state.city} {this.state.temperature}<sup>°C</sup></div> : 'No data'
+
                 }
             </div>
         );
