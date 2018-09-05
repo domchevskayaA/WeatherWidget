@@ -1,5 +1,5 @@
 .App {
-    background-image: url("images/sunny.jpg");
+    background-image: url("images/default.jpg");
     background-size: cover;
     align-items: center;
     padding: 180px 0 0;
@@ -15,6 +15,15 @@
 }
 .App.Clear{
     background-image: url("images/clear.jpg");
+}
+.App.Mostlysunny{
+    background-image: url("images/mostlysunny.jpg");
+}
+.App.Sunny{
+    background-image: url("images/sunny.jpg");
+}
+.App.Lightrain{
+    background-image: url("images/lightrain.jpg");
 }
 input, input::placeholder, button{
     font-size: 24px;
