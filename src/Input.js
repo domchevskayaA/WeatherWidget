@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const Input = ({ onChange, value }) => (
     <input
-        type='search'
-        placeholder='City'
+        type='text'
+        placeholder='Type the name of the city'
         required={true}
         onChange={onChange}
         value={value}

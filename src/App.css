@@ -1,15 +1,60 @@
 .App {
-    text-align: center;
-    width: 50%;
-    margin: 50px auto;
+    background-image: url("images/sunny.jpg");
+    background-size: cover;
+    align-items: center;
+    padding: 180px 0 0;
 }
-
+.App.Thundershower{
+    background-image: url("images/thunderstorm.png");
+}
+.App.Partlysunny{
+    background-image: url("images/partlysunny.jpg");
+}
+.App.Cloudy{
+    background-image: url("images/cloudy.jpg");
+}
+.App.Clear{
+    background-image: url("images/clear.jpg");
+}
+input, input::placeholder, button{
+    font-size: 24px;
+    color: #ffffff;
+}
 input {
-    width: 50%;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    margin: 0 4px 0 0;
 }
-
+input::placeholder{
+    opacity: .7;
+}
+input:focus{
+    outline: none;
+}
+button{
+    background-color: transparent;
+    border-radius: 4px;
+    height: 40px;
+    width: 100px;
+    outline: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+button:hover:not([disabled]){
+    background-color: rgba(255, 255, 255, .2);
+}
+button[disabled]{
+    opacity: .8;
+}
 .WeatherWidget {
-    border: 1px solid gray;
-    padding: 50px 10px;
-    margin: 30px 0;
+    color: white;
+    font-size: 80px;
+    margin: 0 0 60px;
+    align-items: center;
+}
+.WeatherWidget span{
+    font-size: 24px;
+    letter-spacing: 1px;
 }

@@ -7,33 +7,44 @@ class WeatherWidget extends Component {
         super(props);
         this.state = {
             city: '',
-            temperature: 0
+            temperature: 0,
+            weatherText: ''
         };
     }
 
     componentWillReceiveProps(nextProps) {
         if(this.props.city !== nextProps.city) {
+            let cityCapitalized = nextProps.city.charAt(0).toUpperCase() + nextProps.city.slice(1);
+
             getCityConditions(nextProps.city)
-                .then(({data: [{Temperature: { Metric: { Value } }}]}) => this.setState({
-                    city: nextProps.city,
-                    temperature: Value
-                }), () => {
-                    console.log('No such city');
-                    this.setState({
-                        city: ''
+                .then(({data: [{Temperature: { Metric: { Value } }, WeatherText}]}) => {
+                        this.setState({
+                            city: cityCapitalized,
+                            temperature: Value + `°C`,
+                            weatherText: WeatherText
+                        });
+                        this.props.getWeatherText(WeatherText.split(' ').join(''))
+                    },() => {
+                        console.log('No such city');
+                        this.setState({
+                            city: 'No such city',
+                            temperature: '',
+                            weatherText: ''
+                        });
+                    this.props.getWeatherText('')
                     })
-                })
+                }
 
         }
-    }
 
     render() {
         return (
-            <div className="WeatherWidget">
+            <div className="WeatherWidget flex-column">
                 {
-                    this.state.city.length ? <div>{this.state.city} {this.state.temperature}<sup>°C</sup></div> : 'No data'
+                    this.state.city.length ? <div>{this.state.city} {this.state.temperature}</div> : 'No city selected'
 
                 }
+                <span>{this.state.weatherText}</span>
             </div>
         );
     }

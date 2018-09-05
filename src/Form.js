@@ -18,9 +18,9 @@ class Form extends Component {
 
     render() {
         return (
-            <form onSubmit={e => this.onSubmit(e)}>
+            <form onSubmit={e => this.onSubmit(e)} className="flex-row">
                 <Input value={this.state.search} onChange={e => this.setState({ search: e.target.value })}/>
-                <Button onClick={e => this.onSubmit(e)}/>
+                <Button onClick={e => this.onSubmit(e)} disabled={!this.state.search.length}/>
             </form>
         );
     }

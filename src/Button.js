@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Button = () => (
+const Button = (props) => (
     <button
         type='submit'
+        disabled={props.disabled}
     >
         Search
     </button>
